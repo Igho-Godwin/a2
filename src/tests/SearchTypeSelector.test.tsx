@@ -2,7 +2,7 @@ import { describe, it, expect, vi, beforeEach } from "vitest";
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { SearchType } from "../types/github";
-import SearchTypeSelector from "../components/SearchForm/SearchTypeSelector";
+import { SearchTypeSelector } from "../components/SearchForm/SearchTypeSelector";
 
 describe("SearchTypeSelector Component", () => {
   const defaultProps = {
