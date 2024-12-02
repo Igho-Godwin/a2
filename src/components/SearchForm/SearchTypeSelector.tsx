@@ -98,4 +98,3 @@ export const SearchTypeSelector: React.FC<SearchTypeSelectorProps> = ({
   );
 };
 
-export default SearchTypeSelector;
