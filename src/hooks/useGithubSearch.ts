@@ -53,6 +53,12 @@ export const useGitHubSearch = (): UseGitHubSearchReturn => {
   const handleSearch = async (e: React.FormEvent) => {
     e.preventDefault();
     await performSearch(searchTerm, searchType, 1);
+    updateUrlWithPushState();
+  };
+
+  const updateUrlWithPushState = () => {
+    const newUrl = `${window.location.origin}/search/${searchTerm}`;
+    window.history.pushState({}, "", newUrl);
   };
 
   const handlePageChange = async (page: number) => {

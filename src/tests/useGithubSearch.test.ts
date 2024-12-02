@@ -96,6 +96,25 @@ describe("useGitHubSearch", () => {
     expect(result.current.error).toBe("");
   });
 
+  it('should update URL after search', async () => {
+    const { result } = renderHook(() => useGitHubSearch());
+    const pushStateSpy = vi.spyOn(window.history, 'pushState');
+
+    act(() => {
+      result.current.setSearchTerm('testuser');
+    });
+
+    await act(async () => {
+      await result.current.handleSearch({ preventDefault: () => {} } as React.FormEvent);
+    });
+
+    expect(pushStateSpy).toHaveBeenCalledWith(
+      {},
+      '',
+      `${window.location.origin}/search/testuser`
+    );
+  });
+
   it("handles search error", async () => {
     const mockError = new Error("API Error");
     const mockSearchGitHub = searchGitHub as Mock;
