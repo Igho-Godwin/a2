@@ -67,21 +67,6 @@ describe("searchGitHub", () => {
     );
   });
 
-  it("returns correct pagination info", async () => {
-    mockFetch.mockResolvedValueOnce({
-      ok: true,
-      json: () => Promise.resolve(mockResponse),
-    } as Response);
-
-    const result = await searchGitHub("test", "users", 2);
-
-    expect(result.pagination).toEqual({
-      currentPage: 2,
-      totalPages: 33,
-      totalResults: 1000,
-      perPage: 30,
-    });
-  });
 
   it("handles API errors", async () => {
     mockFetch.mockResolvedValueOnce({

@@ -31,7 +31,7 @@ export const searchGitHub = async (
   const data = await response.json();
 
   // Calculate total pages from total count
-  const max_total = 1000; // max github can give
+  const max_total = data.total_count <= 1000 ? data.total_count : 1000  // max github can give
   const totalPages = Math.floor(max_total / PER_PAGE);
 
   return {
