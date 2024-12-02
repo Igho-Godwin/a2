@@ -18,27 +18,6 @@ vi.mock("../hooks/useKeyboardNavigation", () => ({
 describe("App Component", () => {
   beforeEach(() => {
     vi.clearAllMocks();
-
-    // Set up default mock implementation
-    mockUseGitHubSearch.mockReturnValue({
-      searchTerm: "",
-      setSearchTerm: vi.fn(),
-      searchType: "repositories",
-      setSearchType: vi.fn(),
-      results: [],
-      isLoading: false,
-      error: null,
-      pagination: {
-        currentPage: 1,
-        totalPages: 5,
-        totalResults: 50,
-        perPage: 10,
-      },
-      handleSearch: vi.fn(),
-      handlePageChange: vi.fn(),
-    });
-
-    mockUseKeyboardNavigation.mockReturnValue(undefined);
   });
 
   it("displays error message when error occurs", () => {
