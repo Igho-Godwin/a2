@@ -30,7 +30,7 @@ const App: React.FC = () => {
 
   return (
     <ErrorBoundary>
-      <div className="max-w-4xl mx-auto p-6" data-testid="app-container">
+      <div className="max-w-5xl mx-auto p-6" data-testid="app-container">
         <h1
           className="text-3xl font-bold mb-8"
           id="search-bar"
